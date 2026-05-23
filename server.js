@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.sendFile('/app/index.html');
+ res.sendFile('index.html', { root: process.cwd() });
 });
 
 app.post('/api/generate', async (req, res) => {
