@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/generate', async (req, res) => {
   try {
-    const body = { ...req.body, model: 'claude-sonnet-4-5' };
+    const body = { ...req.body, model: 'claude-sonnet-4-5-20251022' };
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
