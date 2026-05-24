@@ -178,7 +178,7 @@ Return ONLY valid JSON (no markdown):
 {"days":[{"breakfast":{"name":"...","calories":300,"protein":20,"carbs":35,"fat":8,"ingredients":["item1","item2"],"recipe":"Step 1. Do this. Step 2. Do that."},"lunch":{"name":"...","calories":450,"protein":30,"carbs":50,"fat":15,"ingredients":["item1","item2"],"recipe":"..."},"dinner":{"name":"...","calories":550,"protein":40,"carbs":60,"fat":18,"ingredients":["item1","item2"],"recipe":"..."},"snack":{"name":"...","calories":150,"protein":5,"carbs":20,"fat":4,"ingredients":["item1"],"recipe":"..."}}]}
 Exactly 7 days. All calorie/macro values must be numbers.`;
     try{
-      const text=await callAI([{role:"user",content:prompt}],4000);
+     callAI([{role:"user",content:prompt}], 8000)
       clearInterval(iv);
       const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());
       setMealPlan(parsed.days); setStep("plan");
