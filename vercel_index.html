@@ -180,7 +180,8 @@ Exactly 7 days. All calorie/macro values must be numbers.`;
     try{
      callAI([{role:"user",content:prompt}], 8000)
       clearInterval(iv);
-      const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());
+      const match = text.match(/\{[\s\S]*\}/);
+const parsed = JSON.parse(match ? match[0] : text.replace(/```json|```/g,"").trim());
       setMealPlan(parsed.days); setStep("plan");
     }catch(e){ clearInterval(iv); setError("Something went wrong. Please try again."); setStep("profile"); }
   },[profile]);
